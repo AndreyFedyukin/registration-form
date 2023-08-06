@@ -1,10 +1,10 @@
 //Создаем текстовое поле
 function getInput(placeholder, type, className) {
-	let input = document.createElement("input")
-	input.placeholder = placeholder
-	input.type = type
-	input.classList.add(className)
-	return input
+  let input = document.createElement("input")
+  input.placeholder = placeholder
+  input.type = type
+  input.classList.add(className)
+  return input
 };
 
 // Создаем текстовый блок
@@ -62,8 +62,10 @@ conditionLabelWrap.classList.add("wrap");
 let conditionLabel = document.createElement("label");
 conditionLabel.classList.add("condition");
 let conditionInp = document.createElement("input");
+conditionInp.classList.add("checkbox")
 conditionInp.type = "checkbox";
 let conditionSpan = document.createElement("span");
+conditionSpan.classList.add("span");
 conditionSpan.textContent = "Согласны с условиями?";
 conditionLabel.append(conditionInp, conditionSpan);
 let conditionErrorLabel = document.createElement("label");
@@ -78,96 +80,96 @@ btn.textContent = "Регистрация";
 
 // Создаем функцию по действию при нажатии на кнопку
 btn.onclick = function () {
-	// Получаем значения полей
-	let nameValue = nameInp.value;
-	let surnameValue = surnameInp.value;
-	let ageValue = Number(ageInp.value);
-	let emailValue = emailInp.value;
-	let passValue = passInp.value;
-	let conditionValue = conditionInp.checked;
+  // Получаем значения полей
+  let nameValue = nameInp.value;
+  let surnameValue = surnameInp.value;
+  let ageValue = Number(ageInp.value);
+  let emailValue = emailInp.value;
+  let passValue = passInp.value;
+  let conditionValue = conditionInp.checked;
 
-	// Создаем переменную флаг
-	let validationResult = false;
+  // Создаем переменную флаг
+  let validationResult = false;
 
-	// Проверка имени
-	nameErrorLabel.textContent = "";
-	if (nameValue.length <= 1) {
-		nameErrorLabel.textContent = "Ошибка! Введите правильное имя"
-		validationResult = true
-	};
-	if (nameValue === "") {
-		nameErrorLabel.textContent = "Ошибка! Введите имя"
-		validationResult = true
-	};
+  // Проверка имени
+  nameErrorLabel.textContent = "";
+  if (nameValue.length <= 1) {
+    nameErrorLabel.textContent = "Ошибка! Введите правильное имя"
+    validationResult = true
+  };
+  if (nameValue === "") {
+    nameErrorLabel.textContent = "Ошибка! Введите имя"
+    validationResult = true
+  };
 
-	// Проверка фамилии
-	surnameErrorLabel.textContent = "";
-	if (surnameValue.length <= 1) {
-		surnameErrorLabel.textContent = "Ошибка! Введите правильную фамилию"
-		validationResult = true
-	};
-	if (surnameValue === "") {
-		surnameErrorLabel.textContent = "Ошибка! Введите фамилию"
-		validationResult = true
-	};
+  // Проверка фамилии
+  surnameErrorLabel.textContent = "";
+  if (surnameValue.length <= 1) {
+    surnameErrorLabel.textContent = "Ошибка! Введите правильную фамилию"
+    validationResult = true
+  };
+  if (surnameValue === "") {
+    surnameErrorLabel.textContent = "Ошибка! Введите фамилию"
+    validationResult = true
+  };
 
-	// Проверка возраста
-	ageErrorLabel.textContent = "";
-	if (ageValue < 18) {
-		ageErrorLabel.textContent = "Ошибка! Вы несовершеннолетний"
-		validationResult = true
-	};
-	if (ageValue === 0) {
-		ageErrorLabel.textContent = "Ошибка! Введите возраст"
-		validationResult = true
-	};
+  // Проверка возраста
+  ageErrorLabel.textContent = "";
+  if (ageValue < 18) {
+    ageErrorLabel.textContent = "Ошибка! Вы несовершеннолетний"
+    validationResult = true
+  };
+  if (ageValue === 0) {
+    ageErrorLabel.textContent = "Ошибка! Введите возраст"
+    validationResult = true
+  };
 
-	// Проверка e-mail
-	emailErrorLabel.textContent = "";
-	if (emailValue.length <= 3 || emailValue.includes("@") === false) {
-		emailErrorLabel.textContent = "Ошибка! Введите правильный e-mail"
-		validationResult = true
-	};
-	if (emailValue === "") {
-		emailErrorLabel.textContent = "Ошибка! Введите e-mail"
-		validationResult = true
-	};
+  // Проверка e-mail
+  emailErrorLabel.textContent = "";
+  if (emailValue.length <= 3 || emailValue.includes("@") === false) {
+    emailErrorLabel.textContent = "Ошибка! Введите правильный e-mail"
+    validationResult = true
+  };
+  if (emailValue === "") {
+    emailErrorLabel.textContent = "Ошибка! Введите e-mail"
+    validationResult = true
+  };
 
-	// Проверка пароля
-	passErrorLabel.textContent = "";
-	if (passValue.length < 6) {
-		passErrorLabel.textContent = "Ошибка! Введите надежный пароль"
-		validationResult = true
-	};
-	if (passValue === "") {
-		passErrorLabel.textContent = "Ошибка! Введите пароль"
-		validationResult = true
-	};
+  // Проверка пароля
+  passErrorLabel.textContent = "";
+  if (passValue.length < 6) {
+    passErrorLabel.textContent = "Ошибка! Введите надежный пароль"
+    validationResult = true
+  };
+  if (passValue === "") {
+    passErrorLabel.textContent = "Ошибка! Введите пароль"
+    validationResult = true
+  };
 
-	// Проверка согласия
-	conditionErrorLabel.textContent = "";
-	if (conditionValue === false) {
-		conditionErrorLabel.textContent = "Ошибка! Подтвердите своё согласие"
-		validationResult = true
-	};
+  // Проверка согласия
+  conditionErrorLabel.textContent = "";
+  if (conditionValue === false) {
+    conditionErrorLabel.textContent = "Ошибка! Подтвердите своё согласие"
+    validationResult = true
+  };
 
-	if (validationResult === true) {
-		return
-	};
+  if (validationResult === true) {
+    return
+  };
 
-	alert(`Ура! ${nameValue} ${surnameValue}, поздравляем с регистрацией!`);
+  alert(`Ура! ${nameValue} ${surnameValue}, поздравляем с регистрацией!`);
 };
 
 // Создаем регистрационное поле
 box.append(
-	title,
-	nameInpWrap,
-	surnameInpWrap,
-	ageInpWrap,
-	emailInpWrap,
-	passInpWrap,
-	conditionLabelWrap,
-	btn
+  title,
+  nameInpWrap,
+  surnameInpWrap,
+  ageInpWrap,
+  emailInpWrap,
+  passInpWrap,
+  conditionLabelWrap,
+  btn
 );
 
 document.body.append(box);
